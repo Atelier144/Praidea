@@ -11,10 +11,10 @@
 #
 default: &default
   adapter: mysql2
-  encoding: utf8mb4
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  encoding: utf8
+  pool: 5
   username: root
-  password:
+  password: Amestric#16
   socket: /tmp/mysql.sock
 
 development:
@@ -50,5 +50,3 @@ test:
 production:
   <<: *default
   database: Praidea_production
-  username: Praidea
-  password: <%= ENV['PRAIDEA_DATABASE_PASSWORD'] %>
