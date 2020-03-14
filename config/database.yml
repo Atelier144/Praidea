@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: Amestric#16
+  password:
   socket: /tmp/mysql.sock
 
 development:
@@ -50,3 +50,5 @@ test:
 production:
   <<: *default
   database: Praidea_production
+  username: root
+  password: Amestric#16
