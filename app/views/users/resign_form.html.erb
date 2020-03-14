@@ -1,0 +1,15 @@
+<% set_meta_tags title: "退会" %>
+<% set_meta_tags noindex: true %>
+
+<%= render :partial => "setting_menu" %>
+<div class="form-settings">
+    <h4>退会</h4>
+    <div class="resign-notice">
+        退会後、全ての投稿および褒めデータが削除されます。<br>
+        また、削除されたデータの復元はできません。
+    </div>
+    <div id="js-settings-resign" class="resign-button" style="margin-top:20px">退会する</div>
+</div>
+<%= form_tag("/settings/resign", class: "form-hidden") do %>
+<input type="submit" id="js-settings-resign-accepted">
+<% end %>

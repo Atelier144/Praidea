@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    mount_uploader :raw_image, ImageUploader
+
     def posts_count
         return Post.where(user_id: self.id).count
     end

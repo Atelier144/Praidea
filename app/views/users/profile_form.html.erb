@@ -1,8 +1,27 @@
+<% set_meta_tags title: "プロフィール設定" %>
+<% set_meta_tags noindex: true %>
+
 <%= render :partial => "setting_menu" %>
 <%= form_tag("/settings/profile", class: "form-settings") do %>
 <h4>プロフィール設定</h4>
+
 <h5>ユーザー名（必須）</h5>
-<h5>自己紹介（300字以内）</h5>
-<h5>ホームページ</h5>
-<input type="submit" value="更新">
+<input type="text" name="name" value="<%= flash[:name] ? flash[:name] : @current_user.name %>">
+<% if flash[:name_warning] %>
+<div class="confirmation-message warning"><%= flash[:name_warning] %></div>
+<% end %>
+
+<h5 style="margin-top: 30px">自己紹介（300字以内）</h5>
+<textarea name="description" style="height:300px"><%= flash[:description] ? flash[:description] : @current_user.description %></textarea>
+<% if flash[:description_warning] %>
+<div class="confirmation-message warning"><%= flash[:description_warning] %></div>
+<% end %>
+
+<h5 style="margin-top: 30px">ホームページ</h5>
+<input type="url" name="url" value="<%= flash[:url] ? flash[:url] : @current_user.url %>">
+<% if flash[:url_warning] %>
+<div class="confirmation-message warning"><%= flash[:url_warning] %></div>
+<% end %>
+
+<input type="submit" value="更新" style="margin-top: 40px">
 <% end %>

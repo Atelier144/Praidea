@@ -1,19 +1,42 @@
+<% set_meta_tags twitter: {site: "@AkioMabuchi"} %>
+<% set_meta_tags twitter: {card: "summary"} %>
+<% set_meta_tags og: {image: image_url("PraideaIcon.png")} %>
+<% set_meta_tags og: {title: "ひらめき褒め褒めSNS『Praidea』"} %>
+<% set_meta_tags og: {url: "https://praiseidea.com"} %>
+<% set_meta_tags og: {description: "Praideaはひらめきを共有しひらめきを褒め合うSNSです。"} %>
+
 <div id="js-top-background" class="top-background">
     <h1>ひらめきをホメよう</h1>
     <p>『Praidea』は、アイデアを共有し褒め合うことによってアイデアマンのモチベーションの向上を目的としたサービスです。</p>
 </div>
+<div class="information-section">
+    <h2>お知らせ</h2>
+    <p>
+        このサービスは、だら様（<a href="https://twitter.com/dala00" target="_blank">@dala00</a>）が主催するイベント「web1week」の作品です。<br>
+        運営コストの都合上、このサービスは2020年4月30日をもって閉鎖します。<br>
+        また、サービスが好評次第、サービスの改良を加えると共にサービス再開も視野に入れています。
+    </p>
+</div>
 <div class="features-section">
     <h2>特徴</h2>
-    <div class="features-container">
-        <div class="feature">
-            <div class="image"></div>
-            <h3>簡単ホメ機能</h3>
-            <p>『Praidea』ではリプの代わりに「スタンプ」と呼ばれるホメ言葉をクリックするだけです。</p>
-        </div>
-        <div class="feature">
-            <div class="image"><%= image_tag("NoKusoRep.png") %></div>
-            <h3>クソリプの心配なし</h3>
-            <p>『Praidea』にはリプライ機能もシェア機能も搭載しておりません。そのため第三者による批判的コメントならびに炎上コメントなどの心配は一切ございません。ちょっとしたくだらないアイデアやひらめきだって構いませんのでどんどん投稿してください。（政治や宗教等を批判・風刺するようなブラックすぎるアイデアの投稿は禁止です。詳細については<%= link_to("利用規約","/terms") %>をご覧ください。）</p>
-        </div>
-    </div>
+    <table class="features">
+        <tbody>
+            <tr>
+                <td valign="top">
+                    <div class="feature">
+                        <div class="image"><%= image_tag("KantanHome.png") %></div>
+                        <h3>簡単ホメ機能</h3>
+                        <p>『Praidea』ではリプの代わりに「スタンプ」と呼ばれるホメ言葉をクリックするだけです。口下手でも褒め下手でも安心して積極的に褒めることができます。「こういったホメスタンプが欲しい」と思った方は、積極的にアイデアとして投稿してください。運営者が迅速でスタンプを作ります。</p>
+                    </div>
+                </td>
+                <td valign="top">
+                    <div class="feature">
+                        <div class="image"><%= image_tag("NoKusoRep.png") %></div>
+                        <h3>クソリプの心配なし</h3>
+                        <p>『Praidea』にはリプライ機能もシェア機能も搭載しておりません。そのため第三者による批判的コメントならびに炎上コメントなどの心配は一切ございません。別の投稿で否定される可能性は多少ありますが、そういった投稿は運営者が積極的に削除しますのでご安心ください。（政治や宗教等を批判・風刺するようなブラックすぎるアイデアの投稿は禁止です。詳細については<%= link_to("利用規約","/terms") %>をご覧ください。）</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

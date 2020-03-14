@@ -46,11 +46,11 @@ $(document).ready(function () {
     $("#js-idea-form-image").on("change", function () {
         var file = $(this).prop("files")[0];
         if (!(file === undefined)) {
-            var fileNameRegExp = /\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/
+            var fileNameRegExp = /\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/;
             if (!(file.type.match("image.*"))) {
                 alert("画像ファイルをアップロードしてください");
                 $(this).val(undefined);
-            } else if (!(fileNameRegExp.text(file.name))) {
+            } else if (!(fileNameRegExp.test(file.name))) {
                 alert("gif、png、jpgのいずれかの画像をアップロードしてください");
                 $(this).val(undefined);
             } else if (file.size > 4194304) {
@@ -59,4 +59,52 @@ $(document).ready(function () {
             }
         }
     });
+
+    $("#js-profile-icon-form-image").on("change", function () {
+        var file = $(this).prop("files")[0];
+        if (!(file === undefined)) {
+            var fileNameRegExp = /\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/;
+            if (!(file.type.match("image.*"))) {
+                alert("画像ファイルをアップロードしてください");
+                $(this).val(undefined);
+                $("#js-profile-icon").attr("src", $("#js-profile-icon-current").attr("src"));
+                $("#js-profile-icon-submit").prop("disabled", true);
+            } else if (!(fileNameRegExp.test(file.name))) {
+                alert("gif、png、jpgのいずれかの画像をアップロードしてください");
+                $(this).val(undefined);
+                $("#js-profile-icon").attr("src", $("#js-profile-icon-current").attr("src"));
+                $("#js-profile-icon-submit").prop("disabled", true);
+            } else if (file.size > 2097152) {
+                alert("2MB以内の画像ファイルをアップロードしてください");
+                $(this).val(undefined);
+                $("#js-profile-icon").attr("src", $("#js-profile-icon-current").attr("src"));
+                $("#js-profile-icon-submit").prop("disabled", true);
+            } else {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    $("#js-profile-icon").attr("src", reader.result);
+                }
+                reader.readAsDataURL(file);
+                $("#js-profile-icon-submit").prop("disabled", false);
+            }
+        } else {
+            $("#js-profile-icon").attr("src", $("#js-profile-icon-current").attr("src"));
+            $("#js-profile-icon-submit").prop("disabled", true);
+        }
+    });
+
+    $("#js-settings-resign").click(function () {
+        var flag = confirm("本当に退会しますか？");
+        if (flag) {
+            $("#js-settings-resign-accepted").click();
+        }
+    });
+
+    $(".page-top").click(function () {
+        $("html, body").animate({
+            "scrollTop": 0
+        }, "slow");
+    });
+
+    $(".flash").delay(2000).fadeOut();
 });

@@ -37,6 +37,8 @@ a {
     }
 }
 
+//------------------------------ HEADER ------------------------------
+
 header {
     width: 100%;
     height: 60px;
@@ -207,6 +209,8 @@ header {
     }
 }
 
+//------------------------------ FOOTER ------------------------------
+
 footer {
     width: 100%;
     height: 50px;
@@ -250,10 +254,51 @@ footer {
 
         a {
             margin-left: 10px;
-            color: aliceblue;
+            color: #D2ECFC;
+
+            &:hover {
+                text-decoration: none;
+                color: #8ED0F8;
+            }
         }
     }
 }
+
+.flash {
+    width: 100%;
+    height: 110px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: red;
+    text-align: center;
+    padding-top: 15px;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    z-index: 3;
+}
+
+.page-top {
+    display: block;
+    width: 60px;
+    height: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #FFBF00;
+    border-radius: 30px;
+    position: fixed;
+    z-index: 15;
+    right: 20px;
+    bottom: 70px;
+    cursor: pointer;
+    font-size: 32px;
+    color: white;
+}
+
 
 .top-background {
     width: 100%;
@@ -286,7 +331,7 @@ footer {
     }
 }
 
-.features-section {
+.information-section {
     width: 100%;
 
     h2 {
@@ -295,12 +340,29 @@ footer {
         text-align: center;
     }
 
-    .features-container {
-        margin: 0px auto 20px;
+    p {
+        padding-bottom: 100px;
+        text-align: center;
+        line-height: 24px;
+    }
+}
+
+.features-section {
+    width: 100%;
+    background-color: #EFEFEF;
+    padding-bottom: 50px;
+
+    h2 {
+        padding-top: 60px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    .features {
+        margin: 0px auto;
 
 
         .feature {
-            display: inline-block;
             width: 300px;
             margin-right: 30px;
             margin-left: 30px;
@@ -313,6 +375,8 @@ footer {
             }
 
             h3 {
+                padding-top: 10px;
+                padding-bottom: 10px;
                 text-align: center;
                 font-size: 20px;
             }
@@ -328,19 +392,10 @@ footer {
 .terms-contents {
     padding: 40px 30px 50px;
     background-color: white;
+    margin: 0px auto 100px;
+    width: 960px;
+    border: 1px solid black;
 
-    @media(max-width:960px) {
-        margin: 0px 0px 100px;
-        width: 100%;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-    }
-
-    @media(min-width:960px) {
-        margin: 0px auto 100px;
-        width: 960px;
-        border: 1px solid black;
-    }
 
     h3 {
         margin: 25px 0px 10px;
@@ -392,6 +447,8 @@ footer {
         }
     }
 }
+
+//------------------------------ IDEA ------------------------------
 
 .idea {
     width: 720px;
@@ -626,7 +683,7 @@ footer {
 .profile {
     width: 720px;
     border: 1px solid #BFBFBF;
-    padding: 30px 40px;
+    padding: 30px 40px 20px;
     margin-right: auto;
     margin-left: auto;
 
@@ -647,8 +704,67 @@ footer {
 
     .name {
         text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 24px;
+        font-weight: 100;
+    }
+
+    .description {
+        border-top: 1px solid #BFBFBF;
+        border-bottom: 1px solid #BFBFBF;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        line-height: 20px;
+    }
+
+    table.urls {
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        tbody {
+            tr {
+                td:nth-child(1) {
+                    text-align: right;
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+
+    .border-line {
+        border-top: 1px solid #BFBFBF;
+    }
+
+    table.status {
+        margin-top: 10px;
+        margin-right: auto;
+        margin-left: auto;
+
+        thead {
+            tr {
+                td {
+                    width: 120px;
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: 100;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    text-align: center;
+                    font-size: 24px;
+                    font-weight: 100;
+                }
+            }
+        }
     }
 }
+
+//------------------------------ FORMS ------------------------------
 
 .form-idea {
     width: 720px;
@@ -693,6 +809,192 @@ footer {
         margin: 30px auto 0px;
         border: none;
     }
+
+    .confirmation-message {
+        margin-top: 5px;
+        padding-left: 2px;
+        height: 15px;
+        line-height: 15px;
+        font-size: 12px;
+    }
+
+    .confirmation-message.ok {
+        color: green;
+    }
+
+    .confirmation-message.warning {
+        color: red;
+    }
+}
+
+.form-settings {
+    background-color: white;
+    padding: 30px 40px 30px;
+    border: 1px solid #BFBFBF;
+    width: 640px;
+    margin: 0px auto 200px;
+
+    h4 {
+        font-size: 20px;
+        line-height: 20px;
+        padding-bottom: 30px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #D8D8D8;
+        text-align: center;
+    }
+
+    h5 {
+        line-height: 30px;
+        font-size: 16px;
+    }
+
+    hr {
+        margin: 0px;
+        height: 1px;
+        border: none;
+        border-top: 1px solid #D8D8D8;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="password"] {
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        padding-left: 5px;
+        border: 1px solid #BFBFBF;
+    }
+
+    input[type="submit"] {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        width: 240px;
+        height: 40px;
+        background-color: #FFBF00;
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        color: white;
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+    }
+
+    input[type="submit"][disabled] {
+        background-color: #E6E6E6;
+        cursor: default;
+    }
+
+    textarea {
+        width: 100%;
+        resize: none;
+        margin: 0px;
+        padding: 5px;
+        font-size: 14px;
+        line-height: 20px;
+        border: 1px solid #BFBFBF;
+    }
+
+    .profile-icon-image {
+        margin-right: auto;
+        margin-bottom: 20px;
+        margin-left: auto;
+        width: 200px;
+        height: 200px;
+
+        img {
+            display: block;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+        }
+    }
+
+    .resign-button {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        width: 240px;
+        height: 40px;
+        line-height: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        color: white;
+        background-color: #FF8080;
+        cursor: pointer;
+    }
+
+    .resign-notice {
+        text-align: center;
+        font-size: 16px;
+        line-height: 30px;
+        font-weight: 500;
+        color: red;
+    }
+
+    .social-warning {
+        text-align: center;
+        color: red;
+        line-height: 30px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .email-notice {
+        text-align: center;
+        color: red;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 30px;
+        margin-top: 10px;
+    }
+
+    .email-notice-description {
+        line-height: 20px;
+        font-size: 14px;
+    }
+
+    .confirmation-message {
+        margin-top: 5px;
+        padding-left: 2px;
+        height: 15px;
+        line-height: 15px;
+        font-size: 12px;
+    }
+
+    .confirmation-message.ok {
+        color: green;
+    }
+
+    .confirmation-message.warning {
+        color: red;
+    }
+
+    .setting-publishments {
+        label {
+            font-size: 14px;
+        }
+    }
+
+    .done-message {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .done-backlink {
+        text-align: center;
+        margin-top: 20px;
+        line-height: 20px;
+    }
 }
 
 .form-twitter-auto {
@@ -734,5 +1036,28 @@ footer {
         background: none;
         border: none;
         color: #3399FF;
+    }
+}
+
+.form-hidden {
+    display: none;
+}
+
+.setting-menu {
+    margin-bottom: 40px;
+    height: 20px;
+    line-height: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+        list-style: none;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    li + li {
+        border-left: 1px solid black;
     }
 }

@@ -1,3 +1,6 @@
+<% set_meta_tags title: "プロフィール" %>
+<% set_meta_tags noindex: true %>
+
 <h1>プロフィール</h1>
 <div class="profile">
     <div class="image">
@@ -5,9 +8,20 @@
     </div>
     <div class="name"><%= @user.name %></div>
     <div class="description"><%= @user.description %></div>
-    <a href="<%= @user.url %>"><%= @user.url%></a>
-    <a href="<%= @user.twitter_url %>"><%= @user.twitter_url%></a>
-    <table>
+    <table class="urls">
+        <tbody>
+            <tr>
+                <td>
+                    <i class="fas fa-home"></i>
+                </td>
+                <td>
+                    <a href="<%= @user.url %>"><%= @user.url%></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="border-line"></div>
+    <table class="status">
         <thead>
             <tr>
                 <td>投稿数</td>

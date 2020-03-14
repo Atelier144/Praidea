@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get "/privacy", to: "home#privacy"
 
   get "/auth/twitter/callback", to: "users#twitter"
+  get "/auth/failure", to: "users#twitter_failure"
   post "/twitter", to: "users#twitter_post"
+  
   post "/logout", to: "users#logout"
 
   get "/posts", to: "posts#show"
@@ -16,7 +18,17 @@ Rails.application.routes.draw do
   get "/users/:id", to: "users#show"
 
   get "/settings/profile", to: "users#profile_form"
-  get "/settings/icon", to: "users#icon_form"
+  get "/settings/profile-icon", to: "users#profile_icon_form"
+  get "/settings/resign", to: "users#resign_form"
+
+  post "/settings/profile", to: "users#profile_update"
+  post "/settings/profile-icon", to: "users#profile_icon_update"
+  post "/settings/profile-icon/default", to: "users#profile_icon_destroy"
+  post "/settings/resign", to: "users#resign"
+
+  get "/settings/profile/done", to: "users#profile_done"
+  get "/settings/profile-icon/done", to: "users#profile_icon_done"
+  get "/settings/resign/done", to: "users#resign_done"
 
   get "/#{Rails.application.credentials.admin[:path]}", to: "home#admin"
 

@@ -1,11 +1,24 @@
+<% set_meta_tags title: "投稿一覧" %>
+<% set_meta_tags twitter: {site: "@AkioMabuchi"} %>
+<% set_meta_tags twitter: {card: "summary"} %>
+<% set_meta_tags og: {image: image_url("PraideaIcon.png")} %>
+<% set_meta_tags og: {title: "ひらめき褒め褒めSNS『Praidea』"} %>
+<% set_meta_tags og: {url: "https://praiseidea.com"} %>
+<% set_meta_tags og: {description: "Praideaはひらめきを共有しひらめきを褒め合うSNSです。"} %>
+
 <h1>投稿一覧</h1>
 <% if @current_user %>
 <%= form_tag("/posts/create", class: "form-idea", multipart: true) do %>
 <h4>ひらめきを投稿しよう</h4>
 <p style="margin-top:10px">メッセージ（260字以内）</p>
-<textarea name="content" style="margin-top: 10px"></textarea>
+<textarea name="content" style="margin-top: 10px"><%= flash[:content] %></textarea>
+<% if flash[:content_warning] %>
+<div class="confirmation-message warning"><%= flash[:content_warning] %></div>
+<% end %>
+
 <p style="margin-top: 25px">画像（4MB以下のgif、png、jpgファイル）</p>
 <input type="file" name="image" style="margin-top: 5px" id="js-idea-form-image">
+
 <input type="submit" value="投稿">
 <% end %>
 <% end %>

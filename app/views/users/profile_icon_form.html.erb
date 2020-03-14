@@ -1,0 +1,15 @@
+<% set_meta_tags title: "プロフィール画像設定" %>
+<% set_meta_tags noindex: true %>
+
+<%= render :partial => "setting_menu" %>
+<%= form_tag("/settings/profile-icon", class: "form-settings", multipart: true) do %>
+<h4>プロフィール画像設定</h4>
+<div class="profile-icon-image">
+    <%= image_tag(@current_user.image,id:"js-profile-icon") %>
+</div>
+<h5>プロフィール画像（2MB以下のgif、png、jpgファイル）</h5>
+<input type="file" name="image" id="js-profile-icon-form-image">
+
+<input type="submit" value="更新" style="margin-top: 40px" id="js-profile-icon-submit" disabled="disabled">
+<%= image_tag(@current_user.image, style: "display:none", id: "js-profile-icon-current") %>
+<% end %>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Praidea</title>
+    <%= display_meta_tags(default_meta_tags) %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -60,8 +60,12 @@
                 <%= link_to("プライバシーポリシー", "/privacy") %>
             </li>
         </ul>
-        <p>This app was developed for web1week 2020<a href="https://twitter.com/AkioMabuchi">@AkioMabuchi</a></p>
+        <p><i class="far fa-copyright"></i> 2020<a href="https://twitter.com/AkioMabuchi" target="_blank">@AkioMabuchi</a></p>
     </footer>
+    <div class="page-top"><i class="fas fa-angle-up"></i></div>
+    <% if flash[:notice] %>
+    <div class="flash"><%= flash[:notice] %></div>
+    <% end %>
 </body>
 
 </html>

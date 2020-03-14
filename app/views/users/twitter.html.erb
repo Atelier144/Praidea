@@ -1,3 +1,6 @@
+<% set_meta_tags title: "Twitter連携中" %>
+<% set_meta_tags noindex: true %>
+
 <%= form_tag("/twitter",class: "form-twitter-auto") do %>
 <h4>ただいま、Twitterと連携中です</h4>
 <input type="text" name="provider" value="<%= @provider %>">
