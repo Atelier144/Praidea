@@ -1,0 +1,8 @@
+<%= render :partial => "setting_menu" %>
+<%= form_tag("/settings/profile", class: "form-settings") do %>
+<h4>プロフィール設定</h4>
+<h5>ユーザー名（必須）</h5>
+<h5>自己紹介（300字以内）</h5>
+<h5>ホームページ</h5>
+<input type="submit" value="更新">
+<% end %>

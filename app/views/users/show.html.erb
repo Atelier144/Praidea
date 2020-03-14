@@ -1,2 +1,27 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>プロフィール</h1>
+<div class="profile">
+    <div class="image">
+        <%= image_tag(@user.image)%>
+    </div>
+    <div class="name"><%= @user.name %></div>
+    <div class="description"><%= @user.description %></div>
+    <a href="<%= @user.url %>"><%= @user.url%></a>
+    <a href="<%= @user.twitter_url %>"><%= @user.twitter_url%></a>
+    <table>
+        <thead>
+            <tr>
+                <td>投稿数</td>
+                <td>褒めた数</td>
+                <td>褒められた数</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= @user.posts_count %></td>
+                <td><%= @user.praises_count %></td>
+                <td><%= @user.praised_count %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<%= render :partial => "layouts/posts" %>

@@ -1,0 +1,3 @@
+class Praise < ApplicationRecord
+    
+end

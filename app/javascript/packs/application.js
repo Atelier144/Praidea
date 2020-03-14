@@ -4,9 +4,9 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -18,3 +18,45 @@ require("channels")
 import "bootstrap"
 import "../src/application.scss"
 import "@fortawesome/fontawesome-free/js/all"
+
+$(document).ready(function () {
+    $("#js-twitter-auto").click();
+
+    $("header .user-image").click(function () {
+        $("header .popup-menu").show();
+    });
+
+    $("header .popup-menu .close").click(function () {
+        $("header .popup-menu").hide();
+    });
+
+    $("#js-top-background").children("h1").delay(1000).fadeIn(1000);
+    $("#js-top-background").children("p").delay(2000).fadeIn(1000);
+
+    $(".stamps-open").click(function () {
+        $(this).hide();
+        $(this).parent().parent().children(".praise-stamps").show();
+    });
+
+    $(".stamps-close").click(function () {
+        $(this).parent().hide();
+        $(this).parent().parent().children(".praises").children(".stamps-open").show();
+    });
+
+    $("#js-idea-form-image").on("change", function () {
+        var file = $(this).prop("files")[0];
+        if (!(file === undefined)) {
+            var fileNameRegExp = /\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/
+            if (!(file.type.match("image.*"))) {
+                alert("画像ファイルをアップロードしてください");
+                $(this).val(undefined);
+            } else if (!(fileNameRegExp.text(file.name))) {
+                alert("gif、png、jpgのいずれかの画像をアップロードしてください");
+                $(this).val(undefined);
+            } else if (file.size > 4194304) {
+                alert("4MB以内の画像ファイルをアップロードしてください");
+                $(this).val(undefined);
+            }
+        }
+    });
+});

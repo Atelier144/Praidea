@@ -1,0 +1,7 @@
+<h1>管理者専用</h1>
+<p>スタンプ作成</p>
+<%= form_tag("/admin/create/stamp", multipart: true) do %>
+<input type="text" name="name">
+<input type="file" name="image">
+<input type="submit" value="投稿">
+<% end %>

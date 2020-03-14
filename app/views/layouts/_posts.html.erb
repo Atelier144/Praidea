@@ -1,0 +1,76 @@
+<% @posts.each_with_index do |post, i| %>
+<div class="idea" id="<%="idea-#{i}"%>">
+    <div class="user-container">
+        <%= link_to("/users/#{post.user_id}", class: "user-image") do %>
+        <%= image_tag(post.user.image) %>
+        <% end %>
+        <div class="user-name-container">
+            <%= link_to("/users/#{post.user_id}", class: "user-name") do %>
+            <%= post.user.name %>
+            <% end %>
+            <div class="created-at"><%= post.created_at.strftime("%Y/%m/%d") %></div>
+        </div>
+
+    </div>
+
+    <div class="content"><%= post.content %></div>
+    <% unless post.image.blank? %>
+    <a href="<%= post.image.url %>" target="_blank" class="idea-image"><%= image_tag(post.image.url) %></a>
+    <% end %>
+    <div class="praises">
+        <% @praise_stamps.each do |praise_stamp| %>
+        <% if post.stamp_count(praise_stamp.id) > 0 %>
+        <% if @current_user %>
+        <% if post.user_id != @current_user.id %>
+        <% if Praise.find_by(user_id: @current_user.id, post_id: post.id, stamp_id: praise_stamp.id) %>
+        <%= link_to("/praise/destroy/#{post.id}/#{praise_stamp.id}/#{i}/#{@board_user_id}", method: "POST", class: "praise clicked") do %>
+        <div class="image"><%= image_tag(praise_stamp.image.url) %></div>
+        <div class="count"><%= post.stamp_count(praise_stamp.id) %></div>
+        <% end %>
+        <% else %>
+        <%= link_to("/praise/create/#{post.id}/#{praise_stamp.id}/#{i}/#{@board_user_id}", method: "POST", class: "praise enabled") do %>
+        <div class="image"><%= image_tag(praise_stamp.image.url) %></div>
+        <div class="count"><%= post.stamp_count(praise_stamp.id) %></div>
+        <% end %>
+        <% end %>
+        <% else %>
+        <div class="praise disabled">
+            <div class="image"><%= image_tag(praise_stamp.image.url) %></div>
+            <div class="count"><%= post.stamp_count(praise_stamp.id) %></div>
+        </div>
+        <% end %>
+        <% else %>
+        <div class="praise disabled">
+            <div class="image"><%= image_tag(praise_stamp.image.url) %></div>
+            <div class="count"><%= post.stamp_count(praise_stamp.id) %></div>
+        </div>
+        <% end %>
+        <% end %>
+        <% end %>
+
+        <% if @current_user %>
+        <% if post.user_id != @current_user.id %>
+        <div class="stamps-open">
+            <i class="fas fa-plus"></i>
+        </div>
+        <% end %>
+        <% end %>
+    </div>
+    <% if @current_user %>
+    <% if post.user_id != @current_user.id %>
+    <div class="praise-stamps">
+        <% @praise_stamps.each do |praise_stamp| %>
+        <% if post.stamp_count(praise_stamp.id) == 0 %>
+        <%= link_to("/praise/create/#{post.id}/#{praise_stamp.id}/#{i}/#{@board_user_id}", method: "POST", class: "praise-stamp") do %>
+        <div class="image"><%= image_tag(praise_stamp.image.url) %></div>
+        <% end %>
+        <% end %>
+        <% end %>
+        <div class="stamps-close">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+    <% end %>
+    <% end %>
+</div>
+<% end %>

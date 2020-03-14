@@ -1,0 +1,12 @@
+<h1>投稿一覧</h1>
+<% if @current_user %>
+<%= form_tag("/posts/create", class: "form-idea", multipart: true) do %>
+<h4>ひらめきを投稿しよう</h4>
+<p style="margin-top:10px">メッセージ（260字以内）</p>
+<textarea name="content" style="margin-top: 10px"></textarea>
+<p style="margin-top: 25px">画像（4MB以下のgif、png、jpgファイル）</p>
+<input type="file" name="image" style="margin-top: 5px" id="js-idea-form-image">
+<input type="submit" value="投稿">
+<% end %>
+<% end %>
+<%= render :partial => "layouts/posts" %>

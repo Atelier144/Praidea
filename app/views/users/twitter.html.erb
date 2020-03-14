@@ -1,3 +1,11 @@
-<%= form_tag("/",class: "form-alpha") do %>
+<%= form_tag("/twitter",class: "form-twitter-auto") do %>
 <h4>ただいま、Twitterと連携中です</h4>
+<input type="text" name="provider" value="<%= @provider %>">
+<input type="text" name="uid" value="<%= @uid %>">
+<input type="text" name="name" value="<%= @name %>">
+<input type="text" name="image" value="<%= @image %>">
+<input type="text" name="description" value="<%= @description %>">
+<input type="text" name="url" value="<%= @url %>">
+<input type="text" name="twitter_url" value="<%= @twitter_url %>">
+<p>自動的に更新されない場合は<input type="submit" value="こちら" id="js-twitter-auto">をクリックしてください</p>
 <% end %>
