@@ -58,9 +58,11 @@ p {
 
 a {
     text-decoration: none;
+    color: #4A90E2;
 
     &:hover {
         text-decoration: none;
+	color: #4A90E2;
     }
 }
 
@@ -267,6 +269,7 @@ footer {
 
                 &:hover {
                     color: #BFBFBF;
+		    text-decoration: underline;
                 }
             }
         }
@@ -713,6 +716,7 @@ footer {
     padding: 30px 40px 20px;
     margin-right: auto;
     margin-left: auto;
+    background-color: white;
 
     .image {
         display: block;

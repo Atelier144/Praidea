@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     :profile_icon_form, :profile_icon_update, :profile_icon_destroy, :profile_icon_done,
     :resign_form, :resign
   ]
+
+  protect_from_forgery except: :twitter_post
+
   def show
     @user = User.find_by(id: params[:id])
     @posts = Post.where(user_id: params[:id]).order(created_at: :desc)
